@@ -4,7 +4,7 @@ var express = require('express');
 var winston = require('winston');
 var app = express();
 
-var func = require('app/index.js');
+var func = require('/app/index.js');
 func(app);
 
 
