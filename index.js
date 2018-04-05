@@ -6,7 +6,7 @@ var app = express();
 
 var func = require('./app/index.js');
 func(app);
-// require('./app')(app);
+
 
 app.listen(app.get('port'), () => {
     winston.info(`Mahogany Daycare Center is on PORT:${app.get('port')}`);
