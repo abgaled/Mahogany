@@ -1,7 +1,7 @@
 {
   "name": "Start on Heroku: Node.js",
   "description": "Mahogany Daycare Center by ADR & MJV",
-  "repository": "https://github.com/heroku/mahogany-webdev",
+  "repository": "https://github.com/heroku/node-js-getting-started",
   "logo": "https://cdn.rawgit.com/heroku/mahogany-webdev/master/public/node.svg",
   "keywords": ["node", "express", "heroku"],
   "image": "heroku/nodejs"
