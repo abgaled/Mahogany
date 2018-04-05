@@ -6,20 +6,23 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "engines": {
+    "node": "8.9.1"
+  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/PUP-CCIS/express-boilerplate.git"
+    "url": "git+https://github.com/abgaled/Mahogany"
   },
   "keywords": [
     "expressjs",
     "boilerplate"
   ],
-  "author": "Micah Andrew Bule",
+  "author": "Abigale Del Rosario",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/PUP-CCIS/express-boilerplate/issues"
+    "url": "https://github.com/abgaled/Mahogany/issues"
   },
-  "homepage": "https://github.com/PUP-CCIS/express-boilerplate#readme",
+  "homepage": "https://github.com/abgaled/Mahogany#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
     "dotenv": "^4.0.0",
