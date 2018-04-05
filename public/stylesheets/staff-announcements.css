@@ -1,0 +1,8 @@
+#addannoucement{
+    color:black;
+}
+
+#addannouncement:hover{
+    background-color:#FF7F50;
+    color:white;
+}

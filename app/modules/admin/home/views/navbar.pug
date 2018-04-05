@@ -1,0 +1,72 @@
+extends ../../../../templates/master.pug
+
+block body
+    <link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/jquery/jquery-3.2.1.slim.min.js"></script>
+    <script src="/assets/popper/popper.min.js"></script>
+    <link rel="stylesheet" href="/stylesheets/admin-home.css">
+
+    <title>Admin-Mahogany Daycare</title>
+    <div id="wrapper">
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand text-uppercase">
+                    <hr>
+                    <a href="/admin"><b>Admin-MahoganyDCC</b></a>
+                    <hr>
+                </li>
+                <li>
+                    <br>
+                    <a href="#">Activities</a>
+                </li>
+                <li >
+                    <a href="#" >Announcements</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle">Students</a>
+                        <div class="dropdown-content" aria-labelledby="dropdownResources">
+                        <a class="dropdown-item" href="#">Nursery
+                        </a>
+                        <a class="dropdown-item" href="#">Pre-Kinder
+                        </a>
+                        <a class="dropdown-item" href="#">Kinder
+                        </a>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">Reports</a>
+                </li>
+                <li>
+                    <a href="#">Maintenance</a>
+                </li>
+                <li>
+                    <a href="/logout"><b>Log-out</b></a>
+                </li>
+            </ul>
+        </div>
+        
+
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        
+                        block content
+
+                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    //- script.
+    //-     $("#menu-toggle").click(function(e) {
+    //-         e.preventDefault();
+    //-         $("#wrapper").toggleClass("toggled");
+    //-     });
+
+    

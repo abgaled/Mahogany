@@ -1,0 +1,113 @@
+extends ../../home/views/navbar.pug
+
+
+block content
+
+    <link rel="stylesheet" href="/stylesheets/staff-announcements.css">
+    <link href="/mahoganylanding/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="/mahoganylanding/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+    //- scripts
+    <script src="/mahoganylanding/vendor/jquery/jquery.min.js"></script>
+    <script src="/mahoganylanding/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/mahoganylanding/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="/mahoganylanding/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+
+    <br>
+    <hr>
+    <br>
+    <div class="content-wrapper">
+    <div class="container-fluid">
+            <div class="container-fluid">
+                <div class="card mb-3">
+                <div class="card-header">
+                    <i class="fa fa-bullhorn"></i><b style="font-size:18;"> Announcements</b>
+                    <button type="button" class="btn btn-outline  float-right" id="addannouncement" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus-square " ></i> Add</button>
+                </div>
+                <div class="card-body">
+                    each announcement in tbl_announcement
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                <b>
+                                value=announcement.varchar_announceTitle
+                                </b>
+                                <p class="float-right">
+                                value=announcement.date_announceDate
+                                </p>
+                            </div>
+                            <div class="card-body">
+                                p(style="text-indent:30px;")
+                                    value=announcement.varchar_announceContent
+                            </div>
+                                <div class="card-footer small text-muted">created by: 
+                                    value=announcement.varchar_userFName +" "
+                                    value=announcement.varchar_userLName                            
+                                </div>
+                        </div>
+                </div>
+                <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+            </div>
+    </div>
+    </div>
+
+
+    //- Modal Add Anoouncement
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="lineModalLabel">Add an Announcement</h3>
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                </div>
+                <div class="modal-body">
+                    
+        
+                    <form method="POST" action="announcements" onSubmit="if(!confirm('You cannot edit this. Is this okay to be posted? Please confirm before you proceed.')){return false;}">
+                        input(type="hidden" name="userid" value=`${user.int_userID}`)
+                        .row
+                        .col-md-9
+                            if alert == 0
+                                .alert.alert-danger(role='alert') <strong> Ooops! </strong> The TITLE you've entered is already used. 
+                            if alert == 1
+                                .alert.alert-success(role='alert')
+                                    strong Yaay!
+                                    |  You have posted your announcement successfully.
+                    .row
+                        <a style="margin-left:60%;">Entry Date:<input type="date" id="theDate" name="date_announcementDate"></a>
+                    <div class="row">
+                    </br>
+                    <div class="form-group col-12">
+                        <label for="editorgcode">Announcement Title</label>
+                        textarea.form-control(rows='2' name="title" required oninvalid="this.setCustomValidity('Set a title for you announcement.')" oninput="setCustomValidity('')")
+                    </div>
+                    <div class="form-group col-12">
+                        <label for="editfname">Announcement Content</label>
+                        textarea.form-control(rows='5' name="post" required oninvalid="this.setCustomValidity('Please say your announcement.')" oninput="setCustomValidity('')")
+                    </div>
+                    </div>
+                    <hr>
+                    <button type="submit" class="btn btn-default float-right" id="addannouncement">Submit</button>
+                    
+                    </form>
+
+                </div>
+                
+            </div>
+
+
+        script.
+            var date = new Date();
+
+            var day = date.getDate();
+            var month = date.getMonth() + 1;
+            var year = date.getFullYear();
+
+            if (month < 10) month = "0" + month;
+            if (day < 10) day = "0" + day;
+
+            var today = year + "-" + month + "-" + day;       
+            document.getElementById("theDate").value = today;
+
+           
+           
