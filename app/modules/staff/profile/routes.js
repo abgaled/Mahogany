@@ -12,18 +12,15 @@ router.get('/',(req, res) => {
     db.query(queryString,[req.session.user.int_collegeID], (err, results, fields) => {
         if (err) console.log(err);
         console.log(results);
-        res.render('office/profile/views/index', {tbl_user:results});
+        res.render('staff/profile/views/index', {tbl_user:results});
     });
 });
 
 router.post('/editprofile', (req, res) => {
     console.log("============================");
-    console.log('OFFICE EDITPROFILE:');
+    console.log('STAFF EDITPROFILE:');
     console.log("============================");
-    var queryString1 = `UPDATE tbl_college SET        
-    varchar_collegeEmail = ("${req.body.college_email}"),
-    varchar_collegePassword = ("${req.body.college_password}")
-    WHERE int_collegeID = ${req.session.user.int_collegeID};`;
+   
 
     
     
@@ -31,9 +28,10 @@ router.post('/editprofile', (req, res) => {
     db.query(queryString1, (err, results, fields) => {        
         if (err) throw err;         
             
-            return res.redirect('/office/profile'); 
+            return res.redirect('/staff/profile'); 
         
-    });
+    
+});
 });
 
 module.exports = router;

@@ -15,6 +15,11 @@ router.use('/activities', require('./activities/routes'));
 
 router.use('/class1', require('./class1/routes'));
 
+router.use('/messaging', require('./messaging/routes'));
+
+router.use('/report', require('./report/routes'));
+
+
 router.use('/profile', require('./profile/routes'));
 router.use('/profile/editprofile', require('./profile/routes'));
 
